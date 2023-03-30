@@ -95,6 +95,7 @@ export class AgregarComponent implements OnInit {
         if ( result ) {
           this._heroesService.borrarHeroe( this.heroe.id! )
             .subscribe( heroe => {
+              this.mostrarSnackBar(`Héroe "${this.heroe.superhero}" eliminado correctamente`);
               this._router.navigate(["/heroes/listado"])
             });
         }
