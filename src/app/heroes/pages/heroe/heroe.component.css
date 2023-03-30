@@ -1,0 +1,13 @@
+#templateDiv{
+    height: 4vh;
+}
+
+.container-fluid {
+    width: 80%;
+    background-color: rgba(105, 105, 105, 0.658);
+}
+
+.img-card{
+    width: 80%;
+    margin-bottom: 12px;
+}

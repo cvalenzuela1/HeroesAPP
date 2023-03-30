@@ -1,0 +1,33 @@
+<div class="text-light">
+    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="1px">
+        <div class="mt-3" fxFlex="90">
+            <h1>¿Está seguro que desea borrar a "{{ data.superhero }}"?</h1>
+            
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <br>
+    <div fxLayout="row" fxLayoutAlign="center">
+        <div class="ms-2">
+            <h3>Los héroes eliminados no podrán ser recuperados</h3>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+
+        <div fxFlex="50" fxLayout="column" class="mx-2" (click)="borrar()">
+            <button mat-raised-button color="warn">
+                <mat-icon>delete</mat-icon>
+                Eliminar
+            </button>
+        </div>
+
+        <div fxFlex="50" fxLayout="column" class="mx-2">
+            <button mat-raised-button color="primary" (click)="cerrar()">
+                <mat-icon>cancel</mat-icon>
+                Cancelar
+            </button>
+        </div>
+
+    </div>
+</div>

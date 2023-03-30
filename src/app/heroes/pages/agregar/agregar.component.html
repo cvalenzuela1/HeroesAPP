@@ -1,0 +1,78 @@
+<h1 *ngIf="!isID">Nuevo Héroe </h1>
+<h1 *ngIf="isID">Editar Héroe {{ heroe.superhero }}</h1>
+<mat-divider></mat-divider>
+<br>
+
+<div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center" fxLayout.xs="column">
+
+    <div fxFlex="50" fxLayout="column">
+
+        <div fxLayout="row" fxLayoutGap="13px">
+
+            <mat-form-field fxFlex="100">
+                <mat-label>Super Héroe</mat-label>
+                <input matInput type="text" [(ngModel)]="heroe.superhero" required>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100">
+                <mat-label>Alter Ego</mat-label>
+                <input matInput type="text" [(ngModel)]="heroe.alter_ego" required>
+            </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100">
+                <mat-label>Primera Aparición</mat-label>
+                <input matInput type="text" [(ngModel)]="heroe.first_appearance" required>
+            </mat-form-field> 
+        </div>
+        
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100">
+                <mat-label>Personajes</mat-label>
+                <input matInput type="text" [(ngModel)]="heroe.characters" required>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100" appearance="fill">
+                <mat-label>Editorial</mat-label>
+                <mat-select [(ngModel)]="heroe.publisher" [value]="heroe.publisher">
+                    <mat-option *ngFor="let editorial of editoriales | keyvalue" [value]="editorial.value | editorialValue">
+                        {{ editorial.value | editorialValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100" appearance="fill">
+                <mat-label>Foto Url</mat-label>
+                <input matInput type="text" [(ngModel)]="heroe.alt_img" required>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="10px">
+            <button fxFlex="100" class="buttonMat" mat-flat-button color="primary"
+            (click)="guardarHeroe()">
+            <mat-icon>edit</mat-icon>
+            Guardar
+            </button>
+
+            <button *ngIf="isID"
+            fxFlex="100" class="buttonMat" mat-flat-button color="warn"
+            (click)="borrarHeroe()">
+            <mat-icon>delete</mat-icon>
+            Eliminar
+            </button>
+        </div>
+        
+
+    </div>
+
+    <div fxFlex="50">
+        <img class="img-hero" mat-card-image [src]="heroe | heroeImagen: isID" alt="">
+    </div>
+
+</div>
