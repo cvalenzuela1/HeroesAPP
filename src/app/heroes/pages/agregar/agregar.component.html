@@ -1,5 +1,4 @@
-<h1 *ngIf="!isID">Nuevo Héroe </h1>
-<h1 *ngIf="isID">Editar Héroe {{ heroe.superhero }}</h1>
+<h1>{{ (isID) ? "Editar Héroe": "Nuevo Héroe" }}</h1>
 <mat-divider></mat-divider>
 <br>
 
