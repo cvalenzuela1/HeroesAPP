@@ -20,7 +20,7 @@ export class LoginComponent {
       .subscribe( resp => {
         console.log( resp );
         if ( resp.id ) {
-          this._router.navigate(["./heroes"]);
+          this._router.navigate(["/"]);
         }
       });
   }
