@@ -18,6 +18,7 @@ import { EditorialValuePipe } from './pipes/editorial-value.pipe';
 import { EditorialKeyPipe } from './pipes/editorial-key.pipe';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 import { SharedModule } from '../shared/shared.module';
+import { MainPageComponent } from './pages/main-page/main-page.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SharedModule } from '../shared/shared.module';
     HeroeImagenPipe,
     EditorialValuePipe,
     EditorialKeyPipe,
-    ConfirmarComponent
+    ConfirmarComponent,
+    MainPageComponent
   ],
   imports: [
     CommonModule,

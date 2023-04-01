@@ -35,10 +35,15 @@
             (click)="sidenav.toggle()">
             <mat-icon fontIcon="menu"></mat-icon>
         </button>
-    
+
+        <span class="center_spacer"></span>
+        <a routerLink="/"> 
+            <img class="img-logo" [src]="superhero_logo">
+        </a>
+       
         <span class="spacer"></span>
     
-        <span>{{ auth.usuario }}</span>
+        <span>{{ auth.usuario || localAuth.usuario }}</span>
     
         <button mat-button (click)="login()">
             <mat-icon fontIcon="login"></mat-icon>
@@ -52,8 +57,17 @@
     </mat-toolbar>
 
     <div class="mt-3 container-fluid">
-        <router-outlet></router-outlet>
+
+        <div *ngIf="!isHome; else homeContent">
+            <router-outlet></router-outlet>
+        </div>
+        
+        <ng-template #homeContent>
+            <app-main-page></app-main-page>
+        </ng-template>
+
     </div>
+
     
 </mat-sidenav-container>
 

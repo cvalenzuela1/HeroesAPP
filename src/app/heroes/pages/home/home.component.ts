@@ -9,7 +9,15 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  superhero_logo: string = "assets/images/superherologo.png";
+  isHome: boolean = false;
+  localAuth: Auth = {
+    id: "",
+    email: "",
+    usuario: ""
+  }
 
   get auth(): Auth {
     return this._authService.auth;
@@ -20,6 +28,19 @@ export class HomeComponent {
     private _router     : Router,
     private _authService: AuthService
   ) { }
+
+  ngOnInit(): void {
+    if ( this._router.url === "/" ) {
+      this.isHome = true;
+    }
+
+    if( localStorage.getItem("token") ) {
+      this._authService.getAuthByID()
+      .subscribe( data => {
+        this.localAuth = data;
+      });
+    }
+  }
 
   login(): void {
     this._router.navigate(["./auth"]);

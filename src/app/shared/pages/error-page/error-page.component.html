@@ -3,6 +3,8 @@
     <mat-toolbar>
         <span class="spacer"></span>
 
+        <span>{{ localAuth.usuario || "" }}</span>
+
         <button mat-button (click)="register()">
             <mat-icon fontIcon="create"></mat-icon>
             Registro

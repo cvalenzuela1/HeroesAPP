@@ -13,8 +13,8 @@ import { Auth } from '../interfaces/auth.interface';
 })
 export class AuthService {
 
-  private _baseUrl: string = environment.baseUrl;
-  private _auth   : Auth | undefined;
+  private _baseUrl   : string = environment.baseUrl;
+  private _auth      : Auth | undefined;
 
   get auth(): Auth {
     return { ...this._auth! };
@@ -25,7 +25,7 @@ export class AuthService {
   verificaAutenticacion(): Observable<boolean> {
     if ( !localStorage.getItem("token") ) { 
       return of(false) 
-    };
+    }
 
     return this._http.get<Auth>(`${ this._baseUrl }/usuarios/1`)
       .pipe(
@@ -46,5 +46,9 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem("token");
+  }
+
+  getAuthByID(): Observable<Auth> {
+    return this._http.get<Auth>(`${ this._baseUrl }/usuarios/${ localStorage.getItem("token") }`);
   }
 }
