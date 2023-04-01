@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Auth } from 'src/app/auth/interfaces/auth.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -12,8 +13,9 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class ErrorPageComponent implements OnInit {
 
-  _404img  : string = "assets/images/404videogame.png";
-  localAuth: Auth = {
+  _404img       : string = "assets/images/404videogame.png";
+  superhero_logo: string = environment.superhero_logo;
+  localAuth     : Auth = {
     id: "",
     email: "",
     usuario: ""

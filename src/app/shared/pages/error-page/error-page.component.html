@@ -1,6 +1,11 @@
 <mat-sidenav-container fullscreen>
     
     <mat-toolbar>
+
+        <span class="center_spacer"></span>
+        <a routerLink="/">
+            <img class="img-logo" [src]="superhero_logo">
+        </a>
         <span class="spacer"></span>
 
         <span>{{ localAuth.usuario || "" }}</span>

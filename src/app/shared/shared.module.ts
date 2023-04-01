@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -16,8 +17,9 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
   ],
   imports: [
     CommonModule,
+    AppRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ]
 })
 export class SharedModule { }
