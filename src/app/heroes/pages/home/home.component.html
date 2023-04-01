@@ -39,12 +39,14 @@
 
         <span class="spacer"></span>
 
-        <button mat-button routerLink="/auth/login">
+        <span>{{ auth.usuario }}</span>
+
+        <button mat-button (click)="login()">
             <mat-icon fontIcon="login"></mat-icon>
             Log in
         </button>
 
-        <button mat-button routerLink="/auth/login">
+        <button mat-button (click)="logout()">
             <mat-icon fontIcon="logout"></mat-icon>
             Logout
         </button>

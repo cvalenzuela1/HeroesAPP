@@ -16,16 +16,17 @@ export class LoginComponent {
   ) { }
 
   login(): void {
-
     this._authService.login()
       .subscribe( resp => {
         console.log( resp );
-
         if ( resp.id ) {
           this._router.navigate(["./heroes"]);
         }
       });
+  }
 
+  noLogin(): void {
+    this._router.navigate(["/heroes"]);
   }
 
 }

@@ -1,8 +1,13 @@
-<mat-grid-list cols="1">
+<mat-grid-list cols="1" rowHeight="40rem">
     <mat-grid-tile>
-        <button mat-flat-button color="primary" (click)="login()">
+        <button mat-flat-button color="primary" (click)="login()" class="mx-1">
             <mat-icon>login</mat-icon>
             Ingresar
+        </button>
+
+        <button mat-flat-button color="warn" (click)="noLogin()" class="mx-1">
+            <mat-icon>login</mat-icon>
+            Ingresar sin Login
         </button>
     </mat-grid-tile>
 </mat-grid-list>
