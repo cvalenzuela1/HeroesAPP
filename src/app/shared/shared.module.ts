@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { AppRoutingModule } from '../app-routing.module';
-
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +15,7 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
+    RouterModule,
     MaterialModule,
     FlexLayoutModule,
   ]
