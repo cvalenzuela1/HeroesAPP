@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent {
+  
   heroes_img = {
     superman: "assets/heroes/dc-superman.jpg",
     batman: "assets/heroes/dc-batman.jpg",
     hulk: "assets/heroes/marvel-hulk.jpg",
-    ironman: "assets/heroes/marvel-iron.jpg"
+    ironman: "assets/heroes/marvel-iron.jpg",
   }
+  heroe_word_img: string = "assets/images/superheroword.png";
 }

@@ -1,0 +1,7 @@
+.img-word {
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+    left: 250px;
+    bottom: 460px;
+}
