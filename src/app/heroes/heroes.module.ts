@@ -17,6 +17,7 @@ import { HeroeImagenPipe } from './pipes/heroe-imagen.pipe';
 import { EditorialValuePipe } from './pipes/editorial-value.pipe';
 import { EditorialKeyPipe } from './pipes/editorial-key.pipe';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
     HeroesRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class HeroesModule { }

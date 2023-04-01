@@ -1,0 +1,24 @@
+<mat-sidenav-container fullscreen>
+    
+    <mat-toolbar>
+        <span class="spacer"></span>
+
+        <button mat-button (click)="register()">
+            <mat-icon fontIcon="create"></mat-icon>
+            Registro
+        </button>
+
+        <button mat-button (click)="login()">
+            <mat-icon fontIcon="login"></mat-icon>
+            Log in
+        </button>
+    </mat-toolbar>
+
+    <mat-grid-list cols="1" rowHeight="80vh">
+        <mat-grid-tile>
+            <img class="img-404" [src]="_404img">
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+</mat-sidenav-container>
+

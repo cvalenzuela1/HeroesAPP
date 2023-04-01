@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth } from 'src/app/auth/interfaces/auth.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -29,4 +29,17 @@ export class HomeComponent {
     this._authService.logout();
     this._router.navigate(["./auth"]);
   }
+
+  toListado(): void {
+    this._router.navigate(["./heroes/listado"]);
+  }
+
+  toAgregar(): void {
+    this._router.navigate(["./heroes/agregar"]);
+  }
+
+  toBuscar(): void {
+    this._router.navigate(["./heroes/buscar"]);
+  }
+
 }
