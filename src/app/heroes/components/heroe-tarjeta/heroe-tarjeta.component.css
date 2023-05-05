@@ -1,0 +1,18 @@
+mat-card {
+    position: relative;
+    min-height: 660px;
+    max-height: 730px;
+}
+
+mat-card-actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* Establece un alto para los botones */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 16px; */
+}

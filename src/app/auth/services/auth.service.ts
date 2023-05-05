@@ -27,7 +27,7 @@ export class AuthService {
       return of(false) 
     }
 
-    return this._http.get<Auth>(`${ this._baseUrl }/usuarios/1`)
+    return this._http.get<Auth>(`${ this._baseUrl }/users/1`)
       .pipe(
         map( auth  => {
           this._auth = auth;
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   login(): Observable<Auth> {
-    return this._http.get<Auth>(`${ this._baseUrl }/usuarios/1`)
+    return this._http.get<Auth>(`${ this._baseUrl }/users/1`)
       .pipe(
         tap( auth => this._auth = auth ),
         tap( auth => localStorage.setItem("token", auth.id) )
@@ -49,6 +49,6 @@ export class AuthService {
   }
 
   getAuthByID(): Observable<Auth> {
-    return this._http.get<Auth>(`${ this._baseUrl }/usuarios/${ localStorage.getItem("token") }`);
+    return this._http.get<Auth>(`${ this._baseUrl }/users/${ localStorage.getItem("token") }`);
   }
 }
