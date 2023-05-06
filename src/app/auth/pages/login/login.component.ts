@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,13 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
 
+  FormGroup
+
   constructor
   ( 
     private _router: Router,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _fb: FormBuilder
   ) { }
 
   login(): void {

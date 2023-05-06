@@ -30,7 +30,6 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
     HomeComponent,
     ListadoComponent,
     HeroeTarjetaComponent,
-
     // Pipes
     HeroeImagenPipe,
     EditorialValuePipe,
