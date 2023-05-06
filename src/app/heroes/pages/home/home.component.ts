@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
   localAuth: Auth = {
     id: "",
     email: "",
-    usuario: ""
+    usuario: "",
+    username: "",
+    password: ""
   }
 
   get auth(): Auth {

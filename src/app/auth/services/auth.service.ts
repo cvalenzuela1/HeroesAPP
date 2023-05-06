@@ -26,21 +26,18 @@ export class AuthService {
     if ( !localStorage.getItem("token") ) { 
       return of(false) 
     }
-
-    return this._http.get<Auth>(`${ this._baseUrl }/users/1`)
-      .pipe(
-        map( auth  => {
-          this._auth = auth;
-          return true;
-        })
-      );
+    else {
+      return of(true)
+    }
   }
 
-  login(): Observable<Auth> {
-    return this._http.get<Auth>(`${ this._baseUrl }/users/1`)
+  login(username: string, password: string): Observable<Auth[]> {
+    const encodedPassword = encodeURIComponent(password);
+    return this._http.get<Auth[]>(`${ this._baseUrl }/users?username=${ username }&password=${ encodedPassword }`)
       .pipe(
-        tap( auth => this._auth = auth ),
-        tap( auth => localStorage.setItem("token", auth.id) )
+        tap( auth => this._auth = auth[0] ),
+        tap( auth => localStorage.setItem("token", auth[0]?.id) ),
+        tap( console.log )
       );
   }
 

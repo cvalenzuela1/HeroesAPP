@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from '../../services/validators.service';
 
 @Component({
   selector: 'app-login',
@@ -10,27 +11,39 @@ import { FormBuilder } from '@angular/forms';
 })
 export class LoginComponent {
 
-  FormGroup
+  public myForm: FormGroup = this._fb.group({
+    user: ['', [ Validators.required, Validators.pattern( this._validatorsService.usernamePattern )] ],
+    password: ['', [ Validators.required, Validators.pattern( this._validatorsService.passwordPattern )] ]
+  });
 
   constructor
   ( 
     private _router: Router,
     private _authService: AuthService,
+    private _validatorsService: ValidatorsService,
     private _fb: FormBuilder
   ) { }
 
+  isValidField( field: string ) {
+    return this._validatorsService.isValidField( this.myForm, field );
+  }
+
   login(): void {
-    this._authService.login()
+    this._authService.login( this.myForm.get('user')!.value, this.myForm.get('password')!.value)
       .subscribe( resp => {
-        console.log( resp );
-        if ( resp.id ) {
-          this._router.navigate(["/"]);
+        console.log( resp[0] );
+        if ( resp[0]?.id ) {
+          this._router.navigate(["/heroes"]); 
         }
       });
   }
 
   noLogin(): void {
     this._router.navigate(["/heroes"]);
+  }
+
+  cancelar(): void {
+    this.myForm.reset();
   }
 
 }

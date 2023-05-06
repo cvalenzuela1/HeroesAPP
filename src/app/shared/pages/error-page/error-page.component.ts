@@ -18,7 +18,9 @@ export class ErrorPageComponent implements OnInit {
   localAuth     : Auth = {
     id: "",
     email: "",
-    usuario: ""
+    usuario: "",
+    username: "",
+    password: ""
   }
   
   get auth(): Auth {
