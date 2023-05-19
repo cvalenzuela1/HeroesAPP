@@ -4,6 +4,13 @@ mat-card {
     max-height: 730px;
 }
 
+mat-card-content {
+    position: absolute;
+    bottom: 9.5vh;
+    left: 0;
+    right: 0;
+}
+
 mat-card-actions {
     position: absolute;
     bottom: 0;
