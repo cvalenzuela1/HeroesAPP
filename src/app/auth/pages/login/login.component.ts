@@ -33,7 +33,7 @@ export class LoginComponent {
     this._authService.login(this.myForm.get('user')!.value, this.myForm.get('password')!.value)
       .subscribe(resp => {
         if (resp[0]?.id) {
-          this._authService.jwtAuthentication( resp[0]?.username, resp[0]?.id)
+          // this._authService.jwtAuthentication( resp[0]?.username, resp[0]?.id)
           this._router.navigate(["/heroes"]);
         }
       });

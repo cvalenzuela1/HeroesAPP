@@ -3,8 +3,6 @@ import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 
-import * as jwt from 'jsonwebtoken';
-
 import { Auth } from '../interfaces/auth.interface';
 import { environment } from 'src/environments/environment';
 
@@ -43,21 +41,21 @@ export class AuthService {
       );
   }
 
-  jwtAuthentication(username: string, id: string): void {
-    const userData = { username: username, id: id };
-    const token = jwt.sign(userData, 'secret_key', { expiresIn: '1h' });
+  // jwtAuthentication(username: string, id: string): void {
+  //   const userData = { username: username, id: id };
+  //   const token = jwt.sign(userData, 'secret_key', { expiresIn: '1h' });
 
-    // Adjuntar el token en el encabezado de autorización
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + token
-    });
+  //   // Adjuntar el token en el encabezado de autorización
+  //   const headers = new HttpHeaders({
+  //     'Authorization': 'Bearer ' + token
+  //   });
 
-    // Realizar una solicitud posterior con el token adjunto en el encabezado
-    this._http.get(`${ this._baseUrl }`, { headers: headers })
-      .subscribe(data => {
-        console.log("Funciona JWT", data);
-      });
-  }
+  //   // Realizar una solicitud posterior con el token adjunto en el encabezado
+  //   this._http.get(`${ this._baseUrl }`, { headers: headers })
+  //     .subscribe(data => {
+  //       console.log("Funciona JWT", data);
+  //     });
+  // }
 
   logout(): void {
     localStorage.removeItem("token");

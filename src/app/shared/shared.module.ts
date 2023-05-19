@@ -5,7 +5,6 @@ import { MaterialModule } from '../material/material.module';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   declarations: [
     ErrorPageComponent
